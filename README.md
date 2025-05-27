@@ -12,13 +12,18 @@ Permitir que usuários armazenem, gerenciem e verifiquem a segurança de suas se
 - **Geração automática** de senhas seguras e aleatórias
 
 ## 🛠 Tecnologias Utilizadas
-
 - Java
 - jBCrypt (para criptografia)
 - API externa `https://api.pwnedpasswords.com/`
 - Git & GitHub (versionamento)
+- Organização por pacotes:
+model – entidades da aplicação
+repository – manipulação de arquivos
+service – regras de negócio
+util – funcionalidades auxiliares
+test – estrutura para testes organizados por camada
 
-## 🗂 Estrutura do Projeto
+## 🗂 Estrutura de Pastas
 
 
 ## 🔒 Funcionalidades
