@@ -59,6 +59,16 @@ Permitir que usuários armazenem, gerenciem e verifiquem a segurança de suas se
 
 5. Todas as credenciais são armazenadas em `credenciais.txt`
 
+## 📴 Modo Offline 
+O sistema conta com um modo offline. Essa funcionalidade permite que o usuário continue utilizando o gerenciador de senhas mesmo sem conexão com a internet.
+Caso não haja internet no momento da verificação da senha, o sistema:
+- Notifica que está no modo offline.
+- Ignora a verificação de vazamento com a API Have I Been Pwned.
+- Permite seguir com o fluxo normalmente, evitando falhas.
+
+Mensagem exibida em modo offline:
+`Modo offline: Sem conexão com a internet. Pulando verificação de vazamento.`
+
 ## 📋 Requisitos Atendidos
 - Criptografia (BCrypt)	
 - Armazenamento seguro	
