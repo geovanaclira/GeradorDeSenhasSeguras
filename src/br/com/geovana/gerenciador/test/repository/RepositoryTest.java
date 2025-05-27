@@ -8,7 +8,7 @@ import java.util.List;
 
 public class RepositoryTest {
     public static void main(String[] args) {
-        CredencialRepository repositorio = new ArquivoRepository("NOME_ARQUIVO");
+        CredencialRepository repositorio = new ArquivoRepository("credenciais.txt");
 
         // Criando e adicionando duas credenciais
         Credencial c1 = new Credencial("Netflix", "joao@netflix.com", "senha123");

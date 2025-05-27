@@ -14,7 +14,7 @@ public class GerenciadorSenhaService {
     private static final String NOME_ARQUIVO = "credenciais.txt";
 
     public GerenciadorSenhaService() {
-        this.repositorio = new ArquivoRepository("NOME_ARQUIVO");
+        this.repositorio = new ArquivoRepository(NOME_ARQUIVO);
     }
 
     public void adicionar(String servico, String usuario, String senha) {

@@ -9,7 +9,7 @@ import br.com.geovana.gerenciador.service.CriptografiaService;
 public class AutenticacaoServiceTest {
     public static void main(String[] args) {
         // Criar o repositório e adicionar uma credencial com senha criptografada
-        CredencialRepository repo = new ArquivoRepository("NOME_ARQUIVO");
+        CredencialRepository repo = new ArquivoRepository("credenciais.txt");
         String senhaOriginal = "1234";
         String senhaCriptografada = CriptografiaService.gerarHash(senhaOriginal);
         Credencial admin = new Credencial("PainelAdmin", "admin", senhaCriptografada);
