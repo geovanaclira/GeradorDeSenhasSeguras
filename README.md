@@ -57,7 +57,7 @@ Permitir que usuários armazenem, gerenciem e verifiquem a segurança de suas se
    
 4. Siga o menu interativo no terminal
 
-5. Todas as credenciais são armazenadas em credenciais.txt com a variável de `NOME_ARQUIVO`
+5. Todas as credenciais são armazenadas em `credenciais.txt`
 
 ## 📋 Requisitos Atendidos
 - Criptografia (BCrypt)	
