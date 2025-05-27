@@ -1,6 +1,6 @@
 # 🔐 Gerenciador de Senhas Seguras
 
-Este projeto Java é um **Gerenciador de Senhas** desenvolvido com foco em **segurança da informação**, ideal para praticar conceitos como criptografia, autenticação e boas práticas de armazenamento seguro de credenciais.
+Aplicação em Java desenvolvida para armazenar e gerenciar senhas de forma segura, com foco em criptografia, autenticação e boas práticas de segurança da informação.
 
 ## 🎯 Objetivo
 
@@ -16,15 +16,25 @@ Permitir que usuários armazenem, gerenciem e verifiquem a segurança de suas se
 - jBCrypt (para criptografia)
 - API externa `https://api.pwnedpasswords.com/`
 - Git & GitHub (versionamento)
-- Organização por pacotes:
-model – entidades da aplicação
-repository – manipulação de arquivos
-service – regras de negócio
-util – funcionalidades auxiliares
-test – estrutura para testes organizados por camada
+- Organização por pacotes: <br>
+  `model` – entidades da aplicação <br>
+  `repository` – manipulação de arquivos <br>
+  `service` – regras de negócio <br>
+  `util` – funcionalidades auxiliares <br>
+  `test` – estrutura para testes organizados por camada
 
 ## 🗂 Estrutura de Pastas
-
+```bash
+   src/
+   └── br.com.geovana.gerenciador/
+       ├── main/
+       │   └── App.java                 # Classe principal (main)
+       ├── model/                       # Classes Credencial e Usuario
+       ├── repository/                 # ArquivoRepository e CredencialRepository
+       ├── service/                    # Autenticacao, 2FA, Criptografia, Gerenciador
+       ├── util/                       # Gerador de senha e verificador de vazamento
+       └── test/                       # Subpastas para testes unitários por camada
+```
 
 ## 🔒 Funcionalidades
 
@@ -41,13 +51,13 @@ test – estrutura para testes organizados por camada
    ```bash
    git clone https://github.com/seu-usuario/seu-repositorio.git
    
-2. Compile e execute o projeto:
-    ```bash
-   cd src
-   javac br/com/geovana/gerenciador/Main.java
-   java br.com.geovana.gerenciador.Main
+2. Importe o projeto em uma IDE como IntelliJ ou Eclipse
    
-3. O arquivo credenciais.txt será criado automaticamente no diretório do projeto.
+3.  Execute a classe `App.java`
+   
+4. Siga o menu interativo no terminal
+
+5. Todas as credenciais são armazenadas em credenciais.txt com a variável de `NOME_ARQUIVO`
 
 ## 📋 Requisitos Atendidos
 - Criptografia (BCrypt)	
