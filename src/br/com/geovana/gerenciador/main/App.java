@@ -51,7 +51,7 @@ public class App {
                     System.out.print("Senha: ");
                     String senha = scanner.nextLine();
 
-                    // Verifica se a senha já foi vazada
+                     // Verifica se a senha já foi vazada
                     if (VerificadorVazamentoUtil.senhaFoiVazada(senha)) {
                         System.out.println("Atenção: Essa senha já foi encontrada em vazamentos de dados.");
                         System.out.print("Deseja continuar mesmo assim? (s/n): ");

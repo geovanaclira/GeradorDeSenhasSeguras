@@ -24,16 +24,19 @@ public class VerificadorVazamentoUtil {
             while ((linha = reader.readLine()) != null) {
                 if (linha.startsWith(sufixo)) {
                     reader.close();
-                    return true; // A senha foi encontrada
+                    return true; // senha foi vazada
                 }
             }
 
             reader.close();
+        } catch (java.net.UnknownHostException e) {
+            System.err.println("Sem conexão com a internet. Não foi possível verificar vazamento.");
+            return false; // assume que não foi vazada para não bloquear o usuário
         } catch (Exception e) {
             System.err.println("Erro ao verificar vazamento: " + e.getMessage());
         }
 
-        return false; // A senha não foi encontrada
+        return false; // senha não encontrada nos vazamentos
     }
 
     private static String gerarSHA1(String input) {
@@ -47,6 +50,18 @@ public class VerificadorVazamentoUtil {
             return sb.toString();
         } catch (Exception e) {
             throw new RuntimeException("Erro ao gerar SHA-1", e);
+        }
+    }
+
+    private static boolean temConexaoInternet() {
+        try {
+            URL url = new URL("https://www.google.com/");
+            HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
+            conexao.setConnectTimeout(3000);
+            conexao.connect();
+            return conexao.getResponseCode() == 200;
+        } catch (Exception e) {
+            return false;
         }
     }
 }
