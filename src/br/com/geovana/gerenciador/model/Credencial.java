@@ -43,13 +43,4 @@ public class Credencial {
                 "Usuário: " + usuario + "\n" +
                 "Senha (criptografada): " + senhaCriptografada;
     }
-
-
-
-
-
-
-
-
-
 }

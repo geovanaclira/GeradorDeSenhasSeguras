@@ -1,5 +1,7 @@
 package br.com.geovana.gerenciador.service;
 
+// Classe responsável por gerar o código de Autenticação
+
 import java.util.Random;
 import java.util.Scanner;
 

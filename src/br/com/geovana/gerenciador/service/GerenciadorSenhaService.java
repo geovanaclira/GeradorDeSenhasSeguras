@@ -1,6 +1,6 @@
 package br.com.geovana.gerenciador.service;
 
-// Classe responsável por adicionar, remover e listar credenciais
+// Classe responsável por adicionar, remover, buscar e listar credenciais
 
 import br.com.geovana.gerenciador.model.Credencial;
 import br.com.geovana.gerenciador.repository.ArquivoRepository;

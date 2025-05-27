@@ -1,6 +1,6 @@
 package br.com.geovana.gerenciador.service;
 
-// Classe responsável por autenticar o usuário com senha + 2FA
+// Classe responsável por autenticar o usuário com senha
 
 import br.com.geovana.gerenciador.model.Credencial;
 import br.com.geovana.gerenciador.repository.CredencialRepository;
