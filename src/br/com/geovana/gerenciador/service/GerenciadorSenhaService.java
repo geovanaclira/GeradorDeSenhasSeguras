@@ -34,4 +34,14 @@ public class GerenciadorSenhaService {
     public List<Credencial> listarTodas() {
         return repositorio.listarTodas();
     }
+
+    public boolean autenticarUsuario(String servico, String usuario, String senhaDigitada) {
+        Credencial credencial = repositorio.buscar(servico);
+        if (credencial == null) return false;
+
+        // Compara usuário e verifica senha
+        return credencial.getUsuario().equals(usuario)
+                && CriptografiaService.verificarSenha(senhaDigitada, credencial.getSenhaCriptografada());
+    }
+
 }

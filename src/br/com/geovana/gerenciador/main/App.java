@@ -31,7 +31,7 @@ public class App {
             System.out.println("2. Buscar credencial por serviço");
             System.out.println("3. Remover credencial");
             System.out.println("4. Listar todas as credenciais");
-            System.out.println("5. Gerar senha segura");
+            System.out.println("5. Fazer login com credencial salva");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
@@ -43,8 +43,17 @@ public class App {
                     String servico = scanner.nextLine();
                     System.out.print("Nome de usuário: ");
                     String usuario = scanner.nextLine();
-                    System.out.print("Senha: ");
-                    String senha = scanner.nextLine();
+                    System.out.print("Deseja usar uma senha segura gerada automaticamente? (s/n): ");
+                    String escolha = scanner.nextLine();
+                    String senha;
+
+                    if (escolha.equalsIgnoreCase("s")) {
+                        senha = gerarSenhaSegura(12); // Usa método ja existente
+                        System.out.println("Senha gerada: " + senha);
+                    } else {
+                        System.out.print("Digite sua senha: ");
+                        senha = scanner.nextLine();
+                    }
 
                      // Verifica se a senha já foi vazada
                     if (VerificadorVazamentoUtil.senhaFoiVazada(senha)) {
@@ -100,9 +109,19 @@ public class App {
                     break;
 
                 case 5:
-                    String senhaSegura = gerarSenhaSegura(12);
-                    System.out.println("Senha sugerida: " + senhaSegura);
-                    break;
+                    System.out.print("Serviço: ");
+                    String servicoLogin = scanner.nextLine();
+                    System.out.print("Usuário: ");
+                    String usuarioLogin = scanner.nextLine();
+                    System.out.print("Senha: ");
+                    String senhaLogin = scanner.nextLine();
+
+                    boolean sucesso = gerenciador.autenticarUsuario(servicoLogin, usuarioLogin, senhaLogin);
+                    if (sucesso) {
+                        System.out.println("Login bem-sucedido!");
+                    } else {
+                        System.out.println("Credenciais inválidas!");
+                    }
 
                 case 0:
                     System.out.println("Saindo...");
