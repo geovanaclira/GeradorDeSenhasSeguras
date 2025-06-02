@@ -8,13 +8,30 @@ import java.util.Scanner;
 public class Authenticator2FA {
     public static boolean autenticar() {
         String codigo = gerarCodigo();
-        System.out.println("Seu código de autenticação é: " + codigo);
-
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Digite o código enviado: ");
-        String entrada = scanner.nextLine();
+        int tentativas = 3;
 
-        return codigo.equals(entrada);
+        while (tentativas > 0) {
+            System.out.println("Seu código de autenticação é: " + codigo);
+            System.out.print("Digite o código: ");
+            String entrada = scanner.nextLine();
+
+            if (entrada.isEmpty()) {
+                System.out.println("Código não pode estar vazio. Tente novamente.");
+                continue; // Não consome tentativa
+            }
+
+            if (codigo.equals(entrada)) {
+                System.out.println("Autenticação bem-sucedida.");
+                return true;
+            } else {
+                tentativas--;
+                System.out.println("Código incorreto. Tentativas restantes: " + tentativas);
+            }
+        }
+
+        System.out.println("Acesso negado. Número de tentativas excedido.");
+        return false;
     }
 
     private static String gerarCodigo() {

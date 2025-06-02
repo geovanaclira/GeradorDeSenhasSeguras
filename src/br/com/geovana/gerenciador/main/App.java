@@ -3,6 +3,7 @@ package br.com.geovana.gerenciador.main;
 //Classe principal da Aplicação
 
 import br.com.geovana.gerenciador.model.Credencial;
+import br.com.geovana.gerenciador.service.Authenticator2FA;
 import br.com.geovana.gerenciador.service.GerenciadorSenhaService;
 import br.com.geovana.gerenciador.util.VerificadorVazamentoUtil;
 
@@ -19,14 +20,8 @@ public class App {
 
         System.out.println("Bem-vindo ao Gerenciador de Senhas Seguras!");
 
-        // 2FA SIMPLES
-        System.out.println("Código de autenticação (2FA): " + CODIGO_2FA);
-        System.out.print("Digite o código de autenticação: ");
-        String codigoDigitado = scanner.nextLine();
-
-        if (!codigoDigitado.equals(CODIGO_2FA)) {
-            System.out.println("Código incorreto. Acesso negado!");
-            return;
+        if (!Authenticator2FA.autenticar()) {
+            return; // Se o código estiver incorreto 3 vezes, o programa termina.
         }
 
         int opcao;
