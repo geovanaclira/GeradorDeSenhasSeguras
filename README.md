@@ -44,6 +44,7 @@ Permitir que usuários armazenem, gerenciem e verifiquem a segurança de suas se
 - Verificação de vazamento de senha via API
 - Autenticação com 2FA (código enviado simulado no terminal)
 - Geração de senha aleatória segura
+- Login com credenciais salvas.
 
 ## ▶️ Como Executar
 
@@ -52,12 +53,14 @@ Permitir que usuários armazenem, gerenciem e verifiquem a segurança de suas se
    git clone https://github.com/seu-usuario/seu-repositorio.git
    
 2. Importe o projeto em uma IDE como IntelliJ ou Eclipse
-   
-3.  Execute a classe `App.java`
-   
-4. Siga o menu interativo no terminal
 
-5. Todas as credenciais são armazenadas em `credenciais.txt`
+3. Adicione a biblioteca `jbcrypt-0.4.jar` ao classpath.
+   
+4.  Compile e execute a classe `App.java`
+   
+5. Siga o menu interativo no terminal
+
+6. Todas as credenciais são armazenadas em `credenciais.txt`
 
 ## 📴 Modo Offline 
 O sistema conta com um modo offline. Essa funcionalidade permite que o usuário continue utilizando o gerenciador de senhas mesmo sem conexão com a internet.
@@ -82,8 +85,6 @@ Mensagem exibida em modo offline:
 - Todas as senhas são armazenadas criptografadas. O código foi revisado para evitar vulnerabilidades conhecidas. Qualquer exceção é tratada adequadamente.
 
 ## 🧠 Aprendizados
-- Este projeto foi fundamental para praticar:
-
 - Conceitos de segurança da informação
 - Utilização de bibliotecas externas em Java
 - Manipulação de arquivos
