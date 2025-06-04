@@ -50,7 +50,7 @@ Permitir que usuários armazenem, gerenciem e verifiquem a segurança de suas se
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/geovanaclira/GeradorDeSenhasSeguras.git
    
 2. Importe o projeto em uma IDE como IntelliJ ou Eclipse
 
