@@ -39,7 +39,7 @@ Permitir que usuários armazenem, gerenciem e verifiquem a segurança de suas se
 ## 🔒 Funcionalidades
 
 - Cadastro de senhas com criptografia segura
-- Remoção, listagem e busca por serviço
+- Adição, remoção, listagem e busca por serviço e usuário
 - Criptografia com **BCrypt**
 - Verificação de vazamento de senha via API
 - Autenticação com 2FA (código enviado simulado no terminal)
@@ -82,7 +82,7 @@ Mensagem exibida em modo offline:
 - Java puro sem frameworks
 
 ## ⚠️ Segurança
-- Todas as senhas são armazenadas criptografadas. O código foi revisado para evitar vulnerabilidades conhecidas. Qualquer exceção é tratada adequadamente.
+- Todas as senhas são armazenadas criptografadas. O código foi revisado para evitar vulnerabilidades conhecidas.
 
 ## 🧠 Aprendizados
 - Conceitos de segurança da informação
