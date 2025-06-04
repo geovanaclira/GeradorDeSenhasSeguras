@@ -3,6 +3,8 @@ package br.com.geovana.gerenciador.repository;
 import br.com.geovana.gerenciador.model.Credencial;
 import java.util.List;
 
+//Interface dos métodos
+
 public interface CredencialRepository {
     void adicionar(Credencial credencial);
     boolean remover(String servico);

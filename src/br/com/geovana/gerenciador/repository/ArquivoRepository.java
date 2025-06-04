@@ -1,6 +1,6 @@
 package br.com.geovana.gerenciador.repository;
 
-// Classe responsável por salvar e ler credenciais do disco
+// Classe responsável por gerenciar o armazenamento e recuperação de credenciais em um arquivo de texto.
 
 import br.com.geovana.gerenciador.model.Credencial;
 import java.io.*;

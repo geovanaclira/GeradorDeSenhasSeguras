@@ -7,7 +7,7 @@ public class CriptografiaService {
     // Gera um hash seguro da senha usando BCrypt
     public static String gerarHash(String senha) {
         try {
-            return BCrypt.hashpw(senha, BCrypt.gensalt(12)); // força 12 é um bom padrão
+            return BCrypt.hashpw(senha, BCrypt.gensalt(12));
         } catch (Exception e) {
             System.err.println("Erro ao gerar hash com BCrypt: " + e.getMessage());
             return null;

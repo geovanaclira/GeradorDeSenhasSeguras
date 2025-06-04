@@ -1,5 +1,5 @@
 package br.com.geovana.gerenciador.model;
-// Classe responsável por armazenar os dados de login e senha de um serviço
+// Classe responsável por armazenar os dados da credencial (servico, usario e a senha)
 
 public class Credencial {
     private String servico;
@@ -36,7 +36,7 @@ public class Credencial {
         this.senhaCriptografada = senhaCriptografada;
     }
 
-    // Metodo para exibir os dados da credencial de maneira legível — sem mostrar a senha real
+    // Metodo para exibir os dados da credencial
     @Override
     public String toString() {
         return "Serviço: " + servico + "\n" +

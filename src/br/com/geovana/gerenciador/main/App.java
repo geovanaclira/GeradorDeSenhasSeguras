@@ -12,6 +12,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class App {
+    // Gera o código para autenticação no terminal
     private static final String CODIGO_2FA = gerarCodigo2FA();
 
     public static void main(String[] args) {
@@ -32,10 +33,11 @@ public class App {
             System.out.println("3. Remover credencial");
             System.out.println("4. Listar todas as credenciais");
             System.out.println("5. Fazer login com credencial salva");
+            System.out.println("6. Buscar credencial por usuário");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
-            scanner.nextLine(); // consumir quebra de linha
+            scanner.nextLine();
 
             switch (opcao) {
                 case 1:
@@ -47,8 +49,9 @@ public class App {
                     String escolha = scanner.nextLine();
                     String senha;
 
+                    // vai gerar senha segura caso a resposta seja 's'
                     if (escolha.equalsIgnoreCase("s")) {
-                        senha = gerarSenhaSegura(12); // Usa método ja existente
+                        senha = gerarSenhaSegura(12);
                         System.out.println("Senha gerada: " + senha);
                     } else {
                         System.out.print("Digite sua senha: ");
@@ -116,12 +119,33 @@ public class App {
                     System.out.print("Senha: ");
                     String senhaLogin = scanner.nextLine();
 
-                    boolean sucesso = gerenciador.autenticarUsuario(servicoLogin, usuarioLogin, senhaLogin);
-                    if (sucesso) {
-                        System.out.println("Login bem-sucedido!");
+                    Credencial cred = gerenciador.buscarPorUsuario(usuarioLogin);
+
+                    if (cred != null) {
+                        boolean senhaValida = gerenciador.validarSenha(senhaLogin, cred.getSenhaCriptografada());
+                        if (senhaValida) {
+                            System.out.println("Login bem-sucedido!");
+                        } else {
+                            System.out.println("Senha incorreta!");
+                        }
                     } else {
-                        System.out.println("Credenciais inválidas!");
+                        System.out.println("Usuário não encontrado.");
                     }
+                    break;
+
+                case 6:
+                    System.out.print("Nome de usuário: ");
+                    String nomeUsuario = scanner.nextLine();
+                    Credencial credencialPorUsuario = gerenciador.buscarPorUsuario(nomeUsuario);
+
+                    if (credencialPorUsuario != null) {
+                        System.out.println("Serviço: " + credencialPorUsuario.getServico());
+                        System.out.println("Usuário: " + credencialPorUsuario.getUsuario());
+                        System.out.println("Senha criptografada: " + credencialPorUsuario.getSenhaCriptografada());
+                    } else {
+                        System.out.println("Credencial não encontrada para o usuário informado.");
+                    }
+                    break;
 
                 case 0:
                     System.out.println("Saindo...");
